@@ -20,13 +20,13 @@ namespace ManagingAdmissionContest
         HtmlGenerator hg = new HtmlGenerator();
         PDFGenerator pg = new PDFGenerator();
         AdmissionManager am = new AdmissionManager();
+        
         public Form2()
         {
             InitializeComponent();
             Utils u = new Utils();
             u.TestPopulateDatabase(appDatabase);
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
-
             this.MaximizeBox = false;
         }
         private void budgetFinanced_TextChanged(object sender, EventArgs e)
@@ -88,9 +88,23 @@ namespace ManagingAdmissionContest
             {
                 var index = listApplicantsSortedByGrade.IndexOf(applicant);
                 var limitTotalAdmitted = Double.Parse(budgetFinanced.Text) + Double.Parse(feePayer.Text);
-
-                XSolidBrush brush;
-                string typeCandidate = am.getStudentStatus(index);
+                var limitBudget = Double.Parse(budgetFinanced.Text);
+                string typeCandidate = "";
+                if (index < limitBudget)
+                {
+                    typeCandidate = "budget-financed";
+                   
+                }
+                else if (index < limitTotalAdmitted)
+                {
+                    typeCandidate = "fee payer";
+                  
+                }
+                else
+                {
+                    typeCandidate = "rejected";
+                   
+                }
                 dg.Rows.Add(applicant.Name + " " + applicant.Surname, applicant.AdmissionGrade, typeCandidate);
             }
 

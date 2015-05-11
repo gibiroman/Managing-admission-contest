@@ -28,7 +28,22 @@ namespace ManagingAdmissionContest
                     var index = listApplicantsSortedByGrade.IndexOf(applicant);
                     var limitTotalAdmitted = limitBudget + limitFeePayer;
 
-                    string typeCandidate = am.getStudentStatus(index);
+                    string typeCandidate = "";
+                    if (index < limitBudget)
+                    {
+                        typeCandidate = "budget-financed";
+                     
+                    }
+                    else if (index < limitTotalAdmitted)
+                    {
+                        typeCandidate = "fee payer";
+                     
+                    }
+                    else
+                    {
+                        typeCandidate = "rejected";
+                        
+                    }
                     sw.WriteLine("<td>" + applicant.Surname + " " + applicant.Name + "<td>");
                     sw.WriteLine("<td>" + applicant.AdmissionGrade + "</td>");
                     sw.WriteLine("<td>" + typeCandidate + "<td>");

@@ -15,12 +15,7 @@ using System.Windows.Forms;
 public class AdmissionManager
 {
     IApplicantDatabase appDatabase = ApplicantDatabase.InitializeDatabase("applicantTable.txt");
-    public int limitBudget { get; set; }
-    public double limitTotalAdmitted { get; set; }
-	public AdmissionManager(){
-       
-
-	}
+    
 
     public List<Applicant> getSortedList()
     {   
@@ -41,25 +36,7 @@ public class AdmissionManager
         return listApplicantsSortedByGrade;
     }
 
-    public string getStudentStatus(int index){
-        string typeCandidate = "";
-        if (index < limitBudget)
-        {
-            typeCandidate = "budget-financed";
-
-        }
-        else if (index < limitTotalAdmitted)
-        {
-            typeCandidate = "fee payer";
-
-        }
-        else
-        {
-            typeCandidate = "rejected";
-            
-        }
-        return typeCandidate;
-    }
+   
 
 
 
