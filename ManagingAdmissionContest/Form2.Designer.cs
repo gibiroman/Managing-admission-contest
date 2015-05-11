@@ -33,11 +33,10 @@
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.feePayer = new System.Windows.Forms.TextBox();
-            this.feePayer.TextChanged += new System.EventHandler(this.feePayer_TextChanged);
             this.budgetFinanced = new System.Windows.Forms.TextBox();
-            this.budgetFinanced.TextChanged += new System.EventHandler(this.budgetFinanced_TextChanged);
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,6 +95,7 @@
             this.feePayer.Name = "feePayer";
             this.feePayer.Size = new System.Drawing.Size(213, 22);
             this.feePayer.TabIndex = 6;
+            this.feePayer.TextChanged += new System.EventHandler(this.feePayer_TextChanged);
             // 
             // budgetFinanced
             // 
@@ -104,6 +104,7 @@
             this.budgetFinanced.Name = "budgetFinanced";
             this.budgetFinanced.Size = new System.Drawing.Size(213, 22);
             this.budgetFinanced.TabIndex = 5;
+            this.budgetFinanced.TextChanged += new System.EventHandler(this.budgetFinanced_TextChanged);
             // 
             // label2
             // 
@@ -125,11 +126,22 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Budget-financed:";
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(295, 411);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(123, 29);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "Edit ";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(715, 563);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form2";
             this.Text = "Publish results";
@@ -149,5 +161,6 @@
         private System.Windows.Forms.TextBox budgetFinanced;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button4;
     }
 }

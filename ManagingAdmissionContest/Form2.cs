@@ -126,6 +126,7 @@ namespace ManagingAdmissionContest
           
             Form3 fm = new Form3();
             DataGridView dg = new DataGridView();
+            dg.Name = "dataResults";
             dg.ColumnCount = 3;
             dg.Columns[0].HeaderText = "Name";
             dg.Columns[1].HeaderText = "Grade";
@@ -162,7 +163,11 @@ namespace ManagingAdmissionContest
             fm.Controls.Add(dg);
             fm.Show();
             this.Hide();
+
+            
         }
+       
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -332,6 +337,12 @@ namespace ManagingAdmissionContest
           
             WriteResultsToHTML(getSortedList(), Double.Parse(budgetFinanced.Text), Double.Parse(feePayer.Text));
             this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form4 form4 = new Form4();
+            form4.Show();
         }
     }
 }

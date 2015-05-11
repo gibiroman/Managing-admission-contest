@@ -80,3 +80,4 @@ C:\Users\Gibi\Desktop\repos\ManagingAdmissionContest\obj\x86\Debug\ManagingAdmis
 C:\Users\Gibi\Desktop\repos\ManagingAdmissionContest\obj\x86\Debug\ManagingAdmissionContest.MainForm.resources
 C:\Users\Gibi\Desktop\repos\ManagingAdmissionContest\obj\x86\Debug\ManagingAdmissionContest.Properties.Resources.resources
 C:\Users\Gibi\Desktop\repos\ManagingAdmissionContest\obj\x86\Debug\ManagingAdmissionContest.csproj.GenerateResource.Cache
+C:\Users\Gibi\Desktop\repos\ManagingAdmissionContest\obj\x86\Debug\ManagingAdmissionContest.Form4.resources
