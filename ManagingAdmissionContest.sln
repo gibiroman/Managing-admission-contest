@@ -3,16 +3,48 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagingAdmissionContest", "ManagingAdmissionContest\ManagingAdmissionContest.csproj", "{CE60C3F4-922A-4E62-9E0D-FB8564BF3837}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{0F49AAC3-4047-4877-96ED-09F7CBF29A3E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4EAB59CD-5FDE-40A0-8C41-7EFF93D970E3}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		ManagingAdmissionContest.vsmdi = ManagingAdmissionContest.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = ManagingAdmissionContest.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE60C3F4-922A-4E62-9E0D-FB8564BF3837}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{CE60C3F4-922A-4E62-9E0D-FB8564BF3837}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{CE60C3F4-922A-4E62-9E0D-FB8564BF3837}.Debug|Mixed Platforms.Build.0 = Debug|x86
 		{CE60C3F4-922A-4E62-9E0D-FB8564BF3837}.Debug|x86.ActiveCfg = Debug|x86
 		{CE60C3F4-922A-4E62-9E0D-FB8564BF3837}.Debug|x86.Build.0 = Debug|x86
+		{CE60C3F4-922A-4E62-9E0D-FB8564BF3837}.Release|Any CPU.ActiveCfg = Release|x86
+		{CE60C3F4-922A-4E62-9E0D-FB8564BF3837}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{CE60C3F4-922A-4E62-9E0D-FB8564BF3837}.Release|Mixed Platforms.Build.0 = Release|x86
 		{CE60C3F4-922A-4E62-9E0D-FB8564BF3837}.Release|x86.ActiveCfg = Release|x86
 		{CE60C3F4-922A-4E62-9E0D-FB8564BF3837}.Release|x86.Build.0 = Release|x86
+		{0F49AAC3-4047-4877-96ED-09F7CBF29A3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F49AAC3-4047-4877-96ED-09F7CBF29A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F49AAC3-4047-4877-96ED-09F7CBF29A3E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0F49AAC3-4047-4877-96ED-09F7CBF29A3E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0F49AAC3-4047-4877-96ED-09F7CBF29A3E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0F49AAC3-4047-4877-96ED-09F7CBF29A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F49AAC3-4047-4877-96ED-09F7CBF29A3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F49AAC3-4047-4877-96ED-09F7CBF29A3E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0F49AAC3-4047-4877-96ED-09F7CBF29A3E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0F49AAC3-4047-4877-96ED-09F7CBF29A3E}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,78 +4,110 @@
         <name>ManagingAdmissionContest</name>
     </assembly>
     <members>
-        <member name="T:ManagingAdmissionContest.Applicant">
+        <member name="F:ManagingAdmissionContest.Form4.components">
             <summary>
-            Manages a single applicant.
+            Required designer variable.
             </summary>
         </member>
-        <member name="M:ManagingAdmissionContest.Applicant.#ctor">
+        <member name="M:ManagingAdmissionContest.Form4.Dispose(System.Boolean)">
             <summary>
-            Creates an applicant object with default values.
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ManagingAdmissionContest.Form4.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="M:ManagingAdmissionContest.Applicant.#ctor(System.String,System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)">
+        <member name="M:ManagingAdmissionContest.Program.Main">
             <summary>
-            Creates an applicant object with given values for each property.
-            </summary>
-            <param name="id">The id of the applicant</param>
-            <param name="surname">The surname of the applicant</param>
-            <param name="name">The name of the applicant</param>
-            <param name="testGrade">The written test grade of the applicant</param>
-            <param name="bacGrade">The bacalaureat grade of the applicant</param>
-            <param name="infoGrade">The bacalaureat:informatics grade of the applicant</param>
-            <param name="mathGrade">The bacalaureat:mathematics grade of the applicant</param>
-            <param name="admissionGrade">The admission contest grade of the applicant</param>
-        </member>
-        <member name="M:ManagingAdmissionContest.Applicant.#ctor(System.String)">
-            <summary>
-            Creates an applicant object from a single string.
-            </summary>
-            <param name="applicatData">A string with the data of the applicant</param>
-        </member>
-        <member name="P:ManagingAdmissionContest.Applicant.Id">
-            <summary>
-            The id of the applicant
+            The main entry point for the application.
             </summary>
         </member>
-        <member name="P:ManagingAdmissionContest.Applicant.Surname">
+        <member name="F:ManagingAdmissionContest.Form3.components">
             <summary>
-            The surname of the applicant
+            Required designer variable.
             </summary>
         </member>
-        <member name="P:ManagingAdmissionContest.Applicant.Name">
+        <member name="M:ManagingAdmissionContest.Form3.Dispose(System.Boolean)">
             <summary>
-            The name of the applicant
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ManagingAdmissionContest.Form3.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="P:ManagingAdmissionContest.Applicant.TestGrade">
+        <member name="F:ManagingAdmissionContest.Form2.components">
             <summary>
-            The test grade of the applicant
+            Required designer variable.
             </summary>
         </member>
-        <member name="P:ManagingAdmissionContest.Applicant.BacGrade">
+        <member name="M:ManagingAdmissionContest.Form2.Dispose(System.Boolean)">
             <summary>
-            The bacalaureat grade of the applicant
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ManagingAdmissionContest.Form2.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="P:ManagingAdmissionContest.Applicant.InfoGrade">
+        <member name="F:ManagingAdmissionContest.Form1.components">
             <summary>
-            The informatics grade of the applicant
+            Required designer variable.
             </summary>
         </member>
-        <member name="P:ManagingAdmissionContest.Applicant.MathGrade">
+        <member name="M:ManagingAdmissionContest.Form1.Dispose(System.Boolean)">
             <summary>
-            The mathematics grade of the applicant
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ManagingAdmissionContest.Form1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="P:ManagingAdmissionContest.Applicant.AdmissionGrade">
+        <member name="T:ManagingAdmissionContest.Properties.Resources">
             <summary>
-            The admission grade of the applicant
+              A strongly-typed resource class, for looking up localized strings, etc.
             </summary>
         </member>
-        <member name="T:ManagingAdmissionContest.ApplicantDatabase">
+        <member name="P:ManagingAdmissionContest.Properties.Resources.ResourceManager">
             <summary>
-            Manages the specific aspects of database connection for the applicant database.
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:ManagingAdmissionContest.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="F:ManagingAdmissionContest.MainForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ManagingAdmissionContest.MainForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ManagingAdmissionContest.MainForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
             </summary>
         </member>
         <member name="T:ManagingAdmissionContest.IApplicantDatabase">
@@ -144,6 +176,40 @@
             It converts the applicant database to string.
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:ManagingAdmissionContest.Database">
+            <summary>
+            Manages the more general aspects of database connection for the applicant database.
+            </summary>
+        </member>
+        <member name="M:ManagingAdmissionContest.Database.CreateDatabase(System.String)">
+            <summary>
+            Creates a database.
+            </summary>
+            <param name="databaseName">The name of the database</param>
+        </member>
+        <member name="M:ManagingAdmissionContest.Database.CreateTable(System.String)">
+            <summary>
+            Creates a table.
+            </summary>
+            <param name="tableName">The name of the table</param>
+        </member>
+        <member name="M:ManagingAdmissionContest.Database.DeleteDatabase(System.String)">
+            <summary>
+            Deletes a database.
+            </summary>
+            <param name="databaseName">The name of the database</param>
+        </member>
+        <member name="M:ManagingAdmissionContest.Database.DeleteTable(System.String)">
+            <summary>
+            Deletes a table.
+            </summary>
+            <param name="tableName">The name of the table</param>
+        </member>
+        <member name="T:ManagingAdmissionContest.ApplicantDatabase">
+            <summary>
+            Manages the specific aspects of database connection for the applicant database.
+            </summary>
         </member>
         <member name="M:ManagingAdmissionContest.ApplicantDatabase.#ctor">
             <summary>
@@ -310,122 +376,73 @@
             </summary>
             <param name="message"></param>
         </member>
-        <member name="T:ManagingAdmissionContest.Database">
+        <member name="T:ManagingAdmissionContest.Applicant">
             <summary>
-            Manages the more general aspects of database connection for the applicant database.
+            Manages a single applicant.
             </summary>
         </member>
-        <member name="M:ManagingAdmissionContest.Database.CreateDatabase(System.String)">
+        <member name="M:ManagingAdmissionContest.Applicant.#ctor">
             <summary>
-            Creates a database.
-            </summary>
-            <param name="databaseName">The name of the database</param>
-        </member>
-        <member name="M:ManagingAdmissionContest.Database.CreateTable(System.String)">
-            <summary>
-            Creates a table.
-            </summary>
-            <param name="tableName">The name of the table</param>
-        </member>
-        <member name="M:ManagingAdmissionContest.Database.DeleteDatabase(System.String)">
-            <summary>
-            Deletes a database.
-            </summary>
-            <param name="databaseName">The name of the database</param>
-        </member>
-        <member name="M:ManagingAdmissionContest.Database.DeleteTable(System.String)">
-            <summary>
-            Deletes a table.
-            </summary>
-            <param name="tableName">The name of the table</param>
-        </member>
-        <member name="F:ManagingAdmissionContest.Form1.components">
-            <summary>
-            Required designer variable.
+            Creates an applicant object with default values.
             </summary>
         </member>
-        <member name="M:ManagingAdmissionContest.Form1.Dispose(System.Boolean)">
+        <member name="M:ManagingAdmissionContest.Applicant.#ctor(System.String,System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
-            Clean up any resources being used.
+            Creates an applicant object with given values for each property.
             </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+            <param name="id">The id of the applicant</param>
+            <param name="surname">The surname of the applicant</param>
+            <param name="name">The name of the applicant</param>
+            <param name="testGrade">The written test grade of the applicant</param>
+            <param name="bacGrade">The bacalaureat grade of the applicant</param>
+            <param name="infoGrade">The bacalaureat:informatics grade of the applicant</param>
+            <param name="mathGrade">The bacalaureat:mathematics grade of the applicant</param>
+            <param name="admissionGrade">The admission contest grade of the applicant</param>
         </member>
-        <member name="M:ManagingAdmissionContest.Form1.InitializeComponent">
+        <member name="M:ManagingAdmissionContest.Applicant.#ctor(System.String)">
             <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
+            Creates an applicant object from a single string.
             </summary>
+            <param name="applicatData">A string with the data of the applicant</param>
         </member>
-        <member name="F:ManagingAdmissionContest.Form2.components">
+        <member name="P:ManagingAdmissionContest.Applicant.Id">
             <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:ManagingAdmissionContest.Form2.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:ManagingAdmissionContest.Form2.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
+            The id of the applicant
             </summary>
         </member>
-        <member name="F:ManagingAdmissionContest.Form3.components">
+        <member name="P:ManagingAdmissionContest.Applicant.Surname">
             <summary>
-            Required designer variable.
+            The surname of the applicant
             </summary>
         </member>
-        <member name="M:ManagingAdmissionContest.Form3.Dispose(System.Boolean)">
+        <member name="P:ManagingAdmissionContest.Applicant.Name">
             <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:ManagingAdmissionContest.Form3.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
+            The name of the applicant
             </summary>
         </member>
-        <member name="F:ManagingAdmissionContest.MainForm.components">
+        <member name="P:ManagingAdmissionContest.Applicant.TestGrade">
             <summary>
-            Required designer variable.
+            The test grade of the applicant
             </summary>
         </member>
-        <member name="M:ManagingAdmissionContest.MainForm.Dispose(System.Boolean)">
+        <member name="P:ManagingAdmissionContest.Applicant.BacGrade">
             <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:ManagingAdmissionContest.MainForm.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
+            The bacalaureat grade of the applicant
             </summary>
         </member>
-        <member name="M:ManagingAdmissionContest.Program.Main">
+        <member name="P:ManagingAdmissionContest.Applicant.InfoGrade">
             <summary>
-            The main entry point for the application.
+            The informatics grade of the applicant
             </summary>
         </member>
-        <member name="T:ManagingAdmissionContest.Properties.Resources">
+        <member name="P:ManagingAdmissionContest.Applicant.MathGrade">
             <summary>
-              A strongly-typed resource class, for looking up localized strings, etc.
+            The mathematics grade of the applicant
             </summary>
         </member>
-        <member name="P:ManagingAdmissionContest.Properties.Resources.ResourceManager">
+        <member name="P:ManagingAdmissionContest.Applicant.AdmissionGrade">
             <summary>
-              Returns the cached ResourceManager instance used by this class.
-            </summary>
-        </member>
-        <member name="P:ManagingAdmissionContest.Properties.Resources.Culture">
-            <summary>
-              Overrides the current thread's CurrentUICulture property for all
-              resource lookups using this strongly typed resource class.
+            The admission grade of the applicant
             </summary>
         </member>
     </members>
