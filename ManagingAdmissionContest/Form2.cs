@@ -29,30 +29,11 @@ namespace ManagingAdmissionContest
         private void budgetFinanced_TextChanged(object sender, EventArgs e)
         {  
             
-            decimal result = 0;
-
-            if (Decimal.TryParse(budgetFinanced.Text, out result))
-            {
-                if (result < 5)
-                {
-                    MessageBox.Show("Inferior limit for rejected applicants!");
-
-                    if (budgetFinanced.Text.Length >= 1)
-                    {
-                        budgetFinanced.Text = budgetFinanced.Text.Remove(budgetFinanced.Text.Length - 1);
-                    }
-                }
-                else if (result > 10)
-                {
-                    MessageBox.Show("Grade is to high!");
-
-                    if (budgetFinanced.Text.Length >= 1)
-                    {
-                        budgetFinanced.Text = budgetFinanced.Text.Remove(budgetFinanced.Text.Length - 1);
-                    }
-                }
-            }
-            else
+            int result = 0;
+            if (string.IsNullOrWhiteSpace(budgetFinanced.Text))
+                MessageBox.Show("Field cannot be empty");
+            
+            if (!Int32.TryParse(budgetFinanced.Text, out result))
             {
                 MessageBox.Show("Please enter only numbers.");
 
@@ -60,7 +41,6 @@ namespace ManagingAdmissionContest
                 {
                     budgetFinanced.Text = budgetFinanced.Text.Remove(budgetFinanced.Text.Length - 1);
                 }
-
             }
         }
 
@@ -69,42 +49,9 @@ namespace ManagingAdmissionContest
         {
             if (string.IsNullOrWhiteSpace(feePayer.Text))
                 MessageBox.Show("Field cannot be empty");
-            decimal result = 0, resultsBudget = 0;
+            int result = 0;
 
-            if (Decimal.TryParse(feePayer.Text, out result))
-            {
-                if (result < 5)
-                {
-                    MessageBox.Show("Inferior limit for rejected applicants");
-
-                    if (feePayer.Text.Length >= 1)
-                    {
-                        feePayer.Text = feePayer.Text.Remove(feePayer.Text.Length - 1);
-                    }
-                }
-                else if (result > 10)
-                {
-                    MessageBox.Show("Grade is to high!");
-
-                    if (feePayer.Text.Length >= 1)
-                    {
-                        feePayer.Text = feePayer.Text.Remove(budgetFinanced.Text.Length - 1);
-                    }
-                }
-                else if (Decimal.TryParse(budgetFinanced.Text, out resultsBudget))
-                {
-                    if (resultsBudget < result)
-                    {
-                        MessageBox.Show("Limit for fee payer must be lower than budget financed.");
-
-                        if (feePayer.Text.Length >= 1)
-                        {
-                            feePayer.Text = feePayer.Text.Remove(feePayer.Text.Length - 1);
-                        }
-                    }
-                }
-            }
-            else
+            if (!Int32.TryParse(feePayer.Text, out result))
             {
                 MessageBox.Show("Please enter only numbers.");
 
@@ -112,7 +59,6 @@ namespace ManagingAdmissionContest
                 {
                     feePayer.Text = feePayer.Text.Remove(feePayer.Text.Length - 1);
                 }
-
             }
         }
 
@@ -131,32 +77,33 @@ namespace ManagingAdmissionContest
             dg.Columns[1].HeaderText = "Grade";
             dg.Columns[2].HeaderText = "Status";
             dg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            //dg.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
-            for (int iApp = getSortedList().Count - 1; iApp >= 0; iApp--)
+            dg.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+
+            var listApplicantsSortedByGrade = getSortedList();
+            foreach (Applicant applicant in listApplicantsSortedByGrade)
             {
-                Applicant applicant = getSortedList().GetByIndex(iApp) as Applicant;
+                var index = listApplicantsSortedByGrade.IndexOf(applicant);
+                var limitTotalAdmitted = Double.Parse(budgetFinanced.Text) + Double.Parse(feePayer.Text);
 
-                double avgGrade = (double)getSortedList().GetKey(iApp);
-
-                avgGrade = Math.Round(avgGrade, 2);
+                XSolidBrush brush;
                 string typeCandidate = "";
-                if (avgGrade >= Double.Parse(budgetFinanced.Text))
+                if (index < Double.Parse(budgetFinanced.Text))
                 {
                     typeCandidate = "budget-financed";
+                    brush = XBrushes.Green;
                 }
-                else if (avgGrade < Double.Parse(budgetFinanced.Text) && avgGrade >= Double.Parse(feePayer.Text))
+                else if (index < limitTotalAdmitted)
                 {
                     typeCandidate = "fee payer";
-
-
+                    brush = XBrushes.Black;
                 }
                 else
                 {
                     typeCandidate = "rejected";
-
-
+                    brush = XBrushes.Red;
                 }
-              dg.Rows.Add(applicant.Name+" "+applicant.Surname, avgGrade, typeCandidate);
+
+                dg.Rows.Add(applicant.Name + " " + applicant.Surname, applicant.AdmissionGrade, typeCandidate);
             }
 
             fm.Controls.Add(dg);
@@ -176,24 +123,25 @@ namespace ManagingAdmissionContest
             this.Hide();
         }
 
-        private SortedList getSortedList()
+        private List<Applicant> getSortedList()
         {
             List<Applicant> listApplicants = appDatabase.SelectAllRecords();
 
-            SortedList listApplicantsSortedByGrade = new SortedList();
-
-            for (int iApp = 0; iApp < listApplicants.Count; iApp++)
+            foreach (var applicant in listApplicants)
             {
-                Applicant applicant = listApplicants[iApp];
+                var index = listApplicants.IndexOf(applicant);
+                var grades = new List<double> { applicant.MathGrade, applicant.InfoGrade, applicant.TestGrade };
+                double avgPonderateGrade = applicant.TestGrade / 2 + applicant.BacGrade / 4 + grades.Max() / 4;
 
-                double avgPonderateGrade = (applicant.BacGrade + applicant.InfoGrade + applicant.MathGrade) / 3;
-
-                listApplicantsSortedByGrade.Add(avgPonderateGrade, applicant);
+                applicant.AdmissionGrade = avgPonderateGrade;
             }
+
+            var listApplicantsSortedByGrade = listApplicants.OrderByDescending(s => s.AdmissionGrade).ToList();
+
             return listApplicantsSortedByGrade;
         }
 
-        private void WriteResultsToPdfFile(SortedList listApplicantsSortedByGrade, double limitBudget, double limitFeePayer)
+        private void WriteResultsToPdfFile(List<Applicant> listApplicantsSortedByGrade, double limitBudget, double limitFeePayer)
         {
             PdfDocument pdf = new PdfDocument();
 
@@ -214,44 +162,38 @@ namespace ManagingAdmissionContest
 
             XFont fontEntries = new XFont("Verdana", 16, XFontStyle.Regular);
 
-            for (int iApp = listApplicantsSortedByGrade.Count - 1; iApp >= 0; iApp--)
+            foreach (Applicant applicant in listApplicantsSortedByGrade)
             {
-                Applicant applicant = listApplicantsSortedByGrade.GetByIndex(iApp) as Applicant;
+                var index = listApplicantsSortedByGrade.IndexOf(applicant);
+                var limitTotalAdmitted = limitBudget + limitFeePayer;
 
-                double avgGrade = (double)listApplicantsSortedByGrade.GetKey(iApp);
-
-                avgGrade = Math.Round(avgGrade, 2);
                 XSolidBrush brush;
                 string typeCandidate = "";
-                if (avgGrade >= limitBudget)
+                if (index < limitBudget)
                 {
                     typeCandidate = "budget-financed";
-
                     brush = XBrushes.Green;
                 }
-                else if (avgGrade < limitBudget && avgGrade >= limitFeePayer)
+                else if (index < limitTotalAdmitted)
                 {
                     typeCandidate = "fee payer";
-
                     brush = XBrushes.Black;
                 }
                 else
                 {
                     typeCandidate = "rejected";
-
                     brush = XBrushes.Red;
                 }
 
-
                 graph.DrawString(applicant.Surname + " " + applicant.Name, fontEntries, XBrushes.Black, new XRect(40, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
 
-                graph.DrawString(avgGrade.ToString(), fontEntries, XBrushes.Black, new XRect(280, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+                graph.DrawString(applicant.AdmissionGrade.ToString(), fontEntries, XBrushes.Black, new XRect(280, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
 
                 graph.DrawString(typeCandidate, fontEntries, brush, new XRect(420, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
 
                 yPoint = yPoint + 40;
             }
-
+            
             pdf.Save("ResultsPDF.pdf");
 
             Process.Start("ResultsPDF.pdf");
@@ -270,9 +212,7 @@ namespace ManagingAdmissionContest
             appDatabase.InsertRecord(applicant3);
         }
 
-
-
-        private void WriteResultsToHTML(SortedList listApplicantsSortedByGrade, double limitBudget, double limitFeePayer)
+        private void WriteResultsToHTML(List<Applicant> listApplicantsSortedByGrade, double limitBudget, double limitFeePayer)
         {
             string path = "results.htm";
             using (StreamWriter sw = File.CreateText(path))
@@ -285,32 +225,32 @@ namespace ManagingAdmissionContest
                 sw.WriteLine("<body >");
                 sw.WriteLine("<table border = \"1\">");
                 sw.WriteLine("<tr>");
-                for (int iApp = listApplicantsSortedByGrade.Count - 1; iApp >= 0; iApp--)
+
+                foreach (Applicant applicant in listApplicantsSortedByGrade)
                 {
-                    Applicant applicant = listApplicantsSortedByGrade.GetByIndex(iApp) as Applicant;
+                    var index = listApplicantsSortedByGrade.IndexOf(applicant);
+                    var limitTotalAdmitted = limitBudget + limitFeePayer;
 
-                    double avgGrade = (double)listApplicantsSortedByGrade.GetKey(iApp);
-
-                    avgGrade = Math.Round(avgGrade, 2);
+                    XSolidBrush brush;
                     string typeCandidate = "";
-                    if (avgGrade >= limitBudget)
+                    if (index < limitBudget)
                     {
                         typeCandidate = "budget-financed";
+                        brush = XBrushes.Green;
                     }
-                    else if (avgGrade < limitBudget && avgGrade >= limitFeePayer)
+                    else if (index < limitTotalAdmitted)
                     {
                         typeCandidate = "fee payer";
-
-
+                        brush = XBrushes.Black;
                     }
                     else
                     {
                         typeCandidate = "rejected";
-
-
+                        brush = XBrushes.Red;
                     }
+
                     sw.WriteLine("<td>" + applicant.Surname + " " + applicant.Name + "<td>");
-                    sw.WriteLine("<td>" + avgGrade + "</td>");
+                    sw.WriteLine("<td>" + applicant.AdmissionGrade + "</td>");
                     sw.WriteLine("<td>" + typeCandidate + "<td>");
                     sw.WriteLine("</tr>");
                 }
