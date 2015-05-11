@@ -80,6 +80,10 @@
   <ItemGroup>
     <Compile Include="Applicant.cs" />
     <Compile Include="ApplicantDatabase.cs" />
+    <Compile Include="AdmissionManager.cs" />
+    <Compile Include="HtmlGenerator.cs" />
+    <Compile Include="PDFGenerator.cs" />
+    <Compile Include="Utils.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="DataGridGroupObject.cs" />
     <Compile Include="Form1.cs">
