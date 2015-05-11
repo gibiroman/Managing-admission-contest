@@ -8,10 +8,21 @@ using System.Text;
 
 namespace ManagingAdmissionContest
 {
-    class PDFGenerator
+    public class PDFGenerator
     {
-        public void WriteResultsToPdfFile(List<Applicant> listApplicantsSortedByGrade, double limitBudget, double limitFeePayer)
+        public static bool WriteResultsToPdfFile(List<Applicant> listApplicantsSortedByGrade, double limitBudget, double limitFeePayer)
         {
+            bool retVal = true;
+
+            if (listApplicantsSortedByGrade.Count <= 0)
+                return false;
+
+            if (limitFeePayer < limitBudget)
+                return false;
+
+            if (limitBudget <= 0 || limitFeePayer <= 0)
+                return false;
+
             PdfDocument pdf = new PdfDocument();
 
             PdfPage pdfPage = pdf.AddPage();
@@ -66,6 +77,8 @@ namespace ManagingAdmissionContest
             pdf.Save("ResultsPDF.pdf");
 
             Process.Start("ResultsPDF.pdf");
+
+            return retVal;
         }
     }
 }

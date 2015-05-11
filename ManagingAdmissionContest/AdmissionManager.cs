@@ -14,10 +14,10 @@ using System.Text;
 using System.Windows.Forms;
 public class AdmissionManager
 {
-    IApplicantDatabase appDatabase = ApplicantDatabase.InitializeDatabase("applicantTable.txt");
+    static IApplicantDatabase appDatabase = ApplicantDatabase.InitializeDatabase("applicantTable.txt");
     
 
-    public List<Applicant> getSortedList()
+    public static List<Applicant> getSortedList()
     {   
        
         List<Applicant> listApplicants = appDatabase.SelectAllRecords();

@@ -83,7 +83,7 @@ namespace ManagingAdmissionContest
             dg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dg.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
 
-            var listApplicantsSortedByGrade = am.getSortedList();
+            var listApplicantsSortedByGrade = AdmissionManager.getSortedList();
             foreach (Applicant applicant in listApplicantsSortedByGrade)
             {
                 var index = listApplicantsSortedByGrade.IndexOf(applicant);
@@ -125,7 +125,7 @@ namespace ManagingAdmissionContest
                 return;
             }
           
-            pg.WriteResultsToPdfFile(am.getSortedList(), Double.Parse(budgetFinanced.Text), Double.Parse(feePayer.Text));
+            PDFGenerator.WriteResultsToPdfFile(AdmissionManager.getSortedList(), Double.Parse(budgetFinanced.Text), Double.Parse(feePayer.Text));
             this.Hide();
         }
 
@@ -137,7 +137,7 @@ namespace ManagingAdmissionContest
                 return;
             }
           
-           hg.WriteResultsToHTML(am.getSortedList(), Double.Parse(budgetFinanced.Text), Double.Parse(feePayer.Text));
+           HtmlGenerator.WriteResultsToHTML(AdmissionManager.getSortedList(), Double.Parse(budgetFinanced.Text), Double.Parse(feePayer.Text));
             this.Hide();
         }
 
