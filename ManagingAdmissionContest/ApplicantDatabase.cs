@@ -70,8 +70,11 @@ namespace ManagingAdmissionContest
                 {
                     _instance = LoadFromFile(Path);
                 }
-                Database.CreateDatabase(folderName);
-                Database.CreateTable(Path);
+                else
+                {
+                    Database.CreateDatabase(folderName);
+                    Database.CreateTable(Path);
+                }
             }
             catch (Exception ex)
             {
@@ -134,7 +137,7 @@ namespace ManagingAdmissionContest
             {
                 foreach (Applicant a in ApplicantList)
                 {
-                    if (GetPropValue(a, property).ToString() == value)
+                    if (PropHasValue(a, property, value))
                     {
                         applicantToRemove.Add(a);
                     }
@@ -185,6 +188,29 @@ namespace ManagingAdmissionContest
             }
         }
 
+        public static bool PropHasValue(Applicant applicant, string prop, string value)
+        {
+            Type t = typeof(Applicant);
+            PropertyInfo p = t.GetProperty(prop);
+            Type propType = p.PropertyType;
+            if (propType.Equals(typeof(double)))
+            {
+                double doubleValue = Double.Parse(value);
+                if ((double)GetPropValue(applicant, prop) == doubleValue)
+                {
+                    return true;
+                }
+            }
+            else 
+            {
+                if (GetPropValue(applicant, prop).Equals(value))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         /// <summary>
         /// It updates the records that have a certain value for a certain property, 
         /// with a specified value for a specified property.
@@ -203,7 +229,7 @@ namespace ManagingAdmissionContest
             {
                 foreach (Applicant a in ApplicantList)
                 {
-                    if (GetPropValue(a, forProperty).ToString() == forValue)
+                    if (PropHasValue(a, forProperty, forValue))
                     {
                         SetPropValue(a, setProperty, setValue);
                     }
@@ -241,7 +267,7 @@ namespace ManagingAdmissionContest
             {
                 foreach (Applicant a in ApplicantList)
                 {
-                    if (GetPropValue(a, property).ToString() == value)
+                    if (PropHasValue(a, property, value))
                     {
                         applicantsToReturn.Add(a);
                     }
