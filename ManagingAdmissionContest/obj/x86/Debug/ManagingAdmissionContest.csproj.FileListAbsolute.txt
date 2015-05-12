@@ -152,3 +152,7 @@ C:\Users\Clautia\Source\Repos\Managing-admission-contest3\ManagingAdmissionConte
 C:\Users\Clautia\Source\Repos\Managing-admission-contest3\ManagingAdmissionContest\obj\x86\Debug\ManagingAdmissionContest.csproj.GenerateResource.Cache
 C:\Users\Clautia\Source\Repos\Managing-admission-contest3\ManagingAdmissionContest\obj\x86\Debug\ManagingAdmissionContest.exe
 C:\Users\Clautia\Source\Repos\Managing-admission-contest3\ManagingAdmissionContest\obj\x86\Debug\ManagingAdmissionContest.pdb
+C:\Users\Adela\Documents\Git-TeamProject-last\Managing-admission-contest\ManagingAdmissionContest\bin\Debug\ManagingAdmissionContest.exe.config
+C:\Users\Adela\Documents\Git-TeamProject-last\Managing-admission-contest\ManagingAdmissionContest\bin\Debug\ManagingAdmissionContest.XML
+C:\Users\Adela\Documents\Git-TeamProject-last\Managing-admission-contest\ManagingAdmissionContest\obj\x86\Debug\ManagingAdmissionContest.exe
+C:\Users\Adela\Documents\Git-TeamProject-last\Managing-admission-contest\ManagingAdmissionContest\obj\x86\Debug\ManagingAdmissionContest.pdb

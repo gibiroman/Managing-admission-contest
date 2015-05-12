@@ -12,7 +12,7 @@ namespace ManagingAdmissionContest
     public class ApplicantDatabase : IApplicantDatabase
     {
         private static ApplicantDatabase _instance;
-        private List<Applicant> ApplicantList { get; set; }
+        public List<Applicant> ApplicantList { get; set; }
         /// <summary>
         /// The name of the file the table is saved in.
         /// </summary>

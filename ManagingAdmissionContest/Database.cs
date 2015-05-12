@@ -6,7 +6,7 @@ namespace ManagingAdmissionContest
     /// <summary>
     /// Manages the more general aspects of database connection for the applicant database.
     /// </summary>
-    class Database
+    public class Database
     {
         /// <summary>
         /// Creates a database.
