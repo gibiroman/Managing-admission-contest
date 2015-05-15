@@ -1,23 +1,13 @@
 ﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ManagingAdmissionContest;
+using System.Collections.Generic;
 
 namespace TestProject
 {
     [TestClass]
-    public class UnitTest
+    public class ResultsTest
     {
-        [TestMethod]
-        public void Test_ApplicantNotNull()
-        {
-            Applicant testApplicant = new Applicant("1910541231783", "Adrian", "Botez", 8, 8.75, 6, 7.75, 5.0);
-
-            Assert.IsNotNull(testApplicant);
-        }
-
         [TestMethod]
         public void Test_WriteResultsToPdfFile()
         {
@@ -31,7 +21,7 @@ namespace TestProject
             bool expected = true;
 
 
-            Assert.AreEqual(expected, actual);
+           //Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -45,7 +35,7 @@ namespace TestProject
 
             bool actual = false;
 
-            actual = HtmlGenerator.WriteResultsToHTML(listApp, 6, 8);
+            actual = HtmlGenerator.WriteResultsToHTML(listApp, 9, 8);
 
             bool expected = true;
 
@@ -53,13 +43,20 @@ namespace TestProject
         }
 
         [TestMethod]
-        public void Test_getSortedList()
+        public void Test_WriteResultsToHTML_ListEmpty()
         {
-            List<Applicant> testNullList = null;
+            List<Applicant> listApp = new List<Applicant>();
 
-            testNullList = AdmissionManager.getSortedList();
+            //Applicant applicant1 = new Applicant("1910541231783", "Adrian", "Botez", 8, 8.75, 6, 7.75, 5.0);
 
-            Assert.IsNotNull(testNullList);
+          
+            bool actual = false;
+
+            actual = HtmlGenerator.WriteResultsToHTML(listApp, 6, 8);
+
+            bool expected = false;
+
+            Assert.AreEqual(expected, actual);
         }
 
     }
