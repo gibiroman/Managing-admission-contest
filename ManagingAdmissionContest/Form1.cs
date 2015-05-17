@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace ManagingAdmissionContest
@@ -40,39 +42,52 @@ namespace ManagingAdmissionContest
         private void button1_Click(object sender, EventArgs e)
         {   
             decimal myDec;
-            if (string.IsNullOrWhiteSpace(textBox1.Text) ||
-                string.IsNullOrWhiteSpace(textBox2.Text) ||
-                string.IsNullOrWhiteSpace(textBox3.Text) ||
-                string.IsNullOrWhiteSpace(textBox4.Text) ||
-                string.IsNullOrWhiteSpace(textBox5.Text) ||
-                string.IsNullOrWhiteSpace(textBox6.Text)
+            if (string.IsNullOrWhiteSpace(firstname.Text) ||
+                string.IsNullOrWhiteSpace(lastname.Text) ||
+                string.IsNullOrWhiteSpace(badgeNo.Text) ||
+                string.IsNullOrWhiteSpace(bacGrade.Text) ||
+                string.IsNullOrWhiteSpace(csGrade.Text) ||
+                string.IsNullOrWhiteSpace(mathGrade.Text)
                 )
             {
                 MessageBox.Show("All fields must be field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (!decimal.TryParse(textBox4.Text, out myDec))
+            else if (!decimal.TryParse(bacGrade.Text, out myDec))
             {
                 MessageBox.Show("Baccalaureat grade must be a decimal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (!decimal.TryParse(textBox5.Text, out myDec))
+            else if (!decimal.TryParse(csGrade.Text, out myDec))
             {
                 MessageBox.Show("Computer Science grade must be a decimal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (!decimal.TryParse(textBox6.Text, out myDec))
+            else if (!decimal.TryParse(mathGrade.Text, out myDec))
             {
                 MessageBox.Show("Mathematics grade must be a decimal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
              else
             {
-                string surname = textBox1.Text;
-                string name = textBox2.Text;
-                string cnp = textBox3.Text;
-                string notaBac = textBox4.Text;
-                string notaInfo = textBox5.Text;
-                string notaMate = textBox6.Text;
-                string notaTest = textBox7.Text;
+                string surname = firstname.Text;
+                string name = lastname.Text;
+                string cnp = badgeNo.Text;
+                string notaBac = bacGrade.Text;
+                string notaInfo = csGrade.Text;
+                string notaMate = mathGrade.Text;
+                string notaTest = testGrade.Text;
+                Debug.Assert(Convert.ToInt32(bacGrade) <= 10,"Nota trebuie sa fie intre 5 si 10");
+                Debug.Assert(Convert.ToInt32(bacGrade) > 5, "Nota trebuie sa fie intre 5 si 10");
+                Debug.Assert(Convert.ToInt32(csGrade) <= 10, "Nota trebuie sa fie intre 5 si 10");
+                Debug.Assert(Convert.ToInt32(csGrade) > 5, "Nota trebuie sa fie intre 5 si 10");
+                Debug.Assert(Convert.ToInt32(mathGrade) <= 10, "Nota trebuie sa fie intre 5 si 10");
+                Debug.Assert(Convert.ToInt32(mathGrade) > 5, "Nota trebuie sa fie intre 5 si 10");
+                Debug.Assert(Convert.ToInt32(testGrade) <= 10, "Nota trebuie sa fie intre 5 si 10");
+                Debug.Assert(Convert.ToInt32(testGrade) > 5, "Nota trebuie sa fie intre 5 si 10");
+                Debug.Assert(Regex.IsMatch(firstname.Text, @"^[a-zA-Z]+$"), "Acest camp trebuie sa contina doar litere");
+                Debug.Assert(Regex.IsMatch(lastname.Text, @"^[a-zA-Z]+$"), "Acest camp trebuie sa contina doar litere");
+                Debug.Assert(Regex.IsMatch(firstname.Text, @"^[a-zA-Z]+$"), "Acest camp trebuie sa contina doar litere");
+                Debug.Assert(Regex.IsMatch(badgeNo.Text, @"^[a-zA-Z0-9]+$"), "Acest camp trebuie sa contina doar litere si cifre");
                 this.Hide();
                 Applicant applicant = new Applicant(cnp, surname, name, Double.Parse(notaTest), Double.Parse(notaBac), Double.Parse(notaInfo), Double.Parse(notaMate),0.0);
+                Debug.Assert(applicant != null);
                 appDatabase.InsertRecord(applicant);
                 MessageBox.Show("Success!");
             }
@@ -82,30 +97,30 @@ namespace ManagingAdmissionContest
 
         public string getName
         {
-            get { return "Nume: " + textBox2.Text; }
+            get { return "Nume: " + lastname.Text; }
         }
         public string getFirstname
         {
-            get { return "Prenume: " + textBox1.Text; }
+            get { return "Prenume: " + firstname.Text; }
         }
         public string getNo
         {
-            get { return "Nr. legitimatie: " + textBox3.Text; }
+            get { return "Nr. legitimatie: " + badgeNo.Text; }
         }
 
         public string getNotaBac
         {
-            get { return "Nota Bacalaureat: " + textBox4.Text; }
+            get { return "Nota Bacalaureat: " + bacGrade.Text; }
         }
 
         public string getNotaMate
         {
-            get { return "Nota Matematica: " +textBox6.Text; }
+            get { return "Nota Matematica: " +mathGrade.Text; }
         }
 
         public string getNotaInfo
         {
-            get { return "Nota Informatica " + textBox5.Text; }
+            get { return "Nota Informatica " + csGrade.Text; }
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)

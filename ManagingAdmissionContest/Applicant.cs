@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace ManagingAdmissionContest
 {
@@ -101,6 +103,18 @@ namespace ManagingAdmissionContest
             InfoGrade = Convert.ToDouble(fields[5]);
             MathGrade = Convert.ToDouble(fields[6]);
             AdmissionGrade = Convert.ToDouble(fields[7]);
+
+            Debug.Assert(BacGrade <= 10, "Nota trebuie sa fie intre 5 si 10");
+            Debug.Assert(BacGrade > 5, "Nota trebuie sa fie intre 5 si 10");
+            Debug.Assert(InfoGrade <= 10, "Nota trebuie sa fie intre 5 si 10");
+            Debug.Assert(InfoGrade > 5, "Nota trebuie sa fie intre 5 si 10");
+            Debug.Assert(MathGrade <= 10, "Nota trebuie sa fie intre 5 si 10");
+            Debug.Assert(MathGrade > 5, "Nota trebuie sa fie intre 5 si 10");
+            Debug.Assert(TestGrade <= 10, "Nota trebuie sa fie intre 5 si 10");
+            Debug.Assert(TestGrade > 5, "Nota trebuie sa fie intre 5 si 10");
+            Debug.Assert(Regex.IsMatch(Surname, @"^[a-zA-Z]+$"), "Acest camp trebuie sa contina doar litere");
+            Debug.Assert(Regex.IsMatch(Name, @"^[a-zA-Z]+$"), "Acest camp trebuie sa contina doar litere");
+            Debug.Assert(Regex.IsMatch(Id, @"^[a-zA-Z0-9]+$"), "Acest camp trebuie sa contina doar litere si cifre");
         }
 
         public override string ToString()

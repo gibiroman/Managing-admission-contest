@@ -14,13 +14,13 @@ namespace TestProject
         {
             //Arrange
             Form1 form = new Form1();
-            form.textBox1.Text = "123";
-            form.textBox2.Text = "123";
-            form.textBox3.Text = "123";
-            form.textBox4.Text = "123";
-            form.textBox5.Text = "123";
-            form.textBox6.Text = "123";
-            form.textBox7.Text = "123";
+            form.firstname.Text = "123";
+            form.lastname.Text = "123";
+            form.badgeNo.Text = "123";
+            form.bacGrade.Text = "123";
+            form.csGrade.Text = "123";
+            form.mathGrade.Text = "123";
+            form.testGrade.Text = "123";
 
             StubIApplicantDatabase shimIApplicantDatabase = new StubIApplicantDatabase();
           //  shim

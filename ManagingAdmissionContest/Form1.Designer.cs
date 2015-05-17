@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.firstname = new System.Windows.Forms.TextBox();
+            this.lastname = new System.Windows.Forms.TextBox();
+            this.bacGrade = new System.Windows.Forms.TextBox();
+            this.csGrade = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.mathGrade = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.badgeNo = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.testGrade = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -56,35 +56,35 @@
             this.label1.Text = "Firstname";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox1
+            // firstname
             // 
-            this.textBox1.Location = new System.Drawing.Point(375, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(384, 22);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.firstname.Location = new System.Drawing.Point(375, 77);
+            this.firstname.Name = "firstname";
+            this.firstname.Size = new System.Drawing.Size(384, 22);
+            this.firstname.TabIndex = 1;
+            this.firstname.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // lastname
             // 
-            this.textBox2.Location = new System.Drawing.Point(375, 134);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(384, 22);
-            this.textBox2.TabIndex = 2;
+            this.lastname.Location = new System.Drawing.Point(375, 134);
+            this.lastname.Name = "lastname";
+            this.lastname.Size = new System.Drawing.Size(384, 22);
+            this.lastname.TabIndex = 2;
             // 
-            // textBox4
+            // bacGrade
             // 
-            this.textBox4.Location = new System.Drawing.Point(375, 242);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(384, 22);
-            this.textBox4.TabIndex = 4;
+            this.bacGrade.Location = new System.Drawing.Point(375, 242);
+            this.bacGrade.Name = "bacGrade";
+            this.bacGrade.Size = new System.Drawing.Size(384, 22);
+            this.bacGrade.TabIndex = 4;
             // 
-            // textBox5
+            // csGrade
             // 
-            this.textBox5.Location = new System.Drawing.Point(375, 307);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(384, 22);
-            this.textBox5.TabIndex = 5;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.csGrade.Location = new System.Drawing.Point(375, 307);
+            this.csGrade.Name = "csGrade";
+            this.csGrade.Size = new System.Drawing.Size(384, 22);
+            this.csGrade.TabIndex = 5;
+            this.csGrade.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // label2
             // 
@@ -127,12 +127,12 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Computer science grade";
             // 
-            // textBox6
+            // mathGrade
             // 
-            this.textBox6.Location = new System.Drawing.Point(375, 364);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(384, 22);
-            this.textBox6.TabIndex = 14;
+            this.mathGrade.Location = new System.Drawing.Point(375, 364);
+            this.mathGrade.Name = "mathGrade";
+            this.mathGrade.Size = new System.Drawing.Size(384, 22);
+            this.mathGrade.TabIndex = 14;
             // 
             // label6
             // 
@@ -144,13 +144,13 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "Mathematics grade";
             // 
-            // textBox3
+            // badgeNo
             // 
-            this.textBox3.Location = new System.Drawing.Point(375, 189);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(384, 22);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.badgeNo.Location = new System.Drawing.Point(375, 189);
+            this.badgeNo.Name = "badgeNo";
+            this.badgeNo.Size = new System.Drawing.Size(384, 22);
+            this.badgeNo.TabIndex = 3;
+            this.badgeNo.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // button1
             // 
@@ -162,12 +162,12 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox7
+            // testGrade
             // 
-            this.textBox7.Location = new System.Drawing.Point(375, 410);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(384, 22);
-            this.textBox7.TabIndex = 17;
+            this.testGrade.Location = new System.Drawing.Point(375, 410);
+            this.testGrade.Name = "testGrade";
+            this.testGrade.Size = new System.Drawing.Size(384, 22);
+            this.testGrade.TabIndex = 17;
             // 
             // label7
             // 
@@ -186,19 +186,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 584);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.testGrade);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.mathGrade);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.csGrade);
+            this.Controls.Add(this.bacGrade);
+            this.Controls.Add(this.badgeNo);
+            this.Controls.Add(this.lastname);
+            this.Controls.Add(this.firstname);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Formular";
@@ -211,19 +211,19 @@
         #endregion
 
         public System.Windows.Forms.Label label1;
-        public System.Windows.Forms.TextBox textBox1;
-        public System.Windows.Forms.TextBox textBox2;
-        public System.Windows.Forms.TextBox textBox4;
-        public System.Windows.Forms.TextBox textBox5;
+        public System.Windows.Forms.TextBox firstname;
+        public System.Windows.Forms.TextBox lastname;
+        public System.Windows.Forms.TextBox bacGrade;
+        public System.Windows.Forms.TextBox csGrade;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.TextBox textBox6;
+        public System.Windows.Forms.TextBox mathGrade;
         public System.Windows.Forms.Label label6;
-        public System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.TextBox badgeNo;
         public System.Windows.Forms.Button button1;
-        public System.Windows.Forms.TextBox textBox7;
+        public System.Windows.Forms.TextBox testGrade;
         public System.Windows.Forms.Label label7;
     }
 }

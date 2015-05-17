@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace ManagingAdmissionContest
@@ -50,29 +52,33 @@ namespace ManagingAdmissionContest
                 myGridData[i, 6] = row.Cells[6].Value.ToString();
                 myGridData[i, 7] = row.Cells[7].Value.ToString();
                 List<Applicant> listA = appDatabase.SelectRecords("Id", myGridData[i, 0]);
+              
                 foreach (Applicant a in listA) { 
                     if (!a.Surname.Equals(myGridData[i,1])){
+                        Debug.Assert(Regex.IsMatch(myGridData[i,1], @"^[a-zA-Z]+$"), "Acest camp trebuie sa contina doar litere"));
                         appDatabase.UpdateRecords("Id",a.Id, "Surname",myGridData[i,1]);
                     }
                     if(!a.Name.Equals(myGridData[i,2])){
+                         Debug.Assert(Regex.IsMatch(myGridData[i,2], @"^[a-zA-Z]+$"), "Acest camp trebuie sa contina doar litere");
                          appDatabase.UpdateRecords("Id",a.Id, "Name",myGridData[i,2]);
                     }
                     if(a.TestGrade!=Convert.ToDouble(myGridData[i,3])){
+                        Debug.Assert(Convert.ToDouble(myGridData[i,3])>=5 && Convert.ToDouble(myGridData[i,3])<=10,"Nota trebuie sa fie intre 5 si 10");
                         appDatabase.UpdateRecords("Id", a.Id, "TestGrade", myGridData[i, 3]);
                     }
                     if (a.BacGrade != Convert.ToDouble(myGridData[i, 4]))
-                    {
+                    {   Debug.Assert(Convert.ToDouble(myGridData[i,3])>=5 && Convert.ToDouble(myGridData[i,4])<=10,"Nota trebuie sa fie intre 5 si 10");
                         appDatabase.UpdateRecords("Id", a.Id, "BacGrade", myGridData[i, 4]);
                     }
                     if (a.InfoGrade!= Convert.ToDouble(myGridData[i, 5]))
-                    {
+                    {   Debug.Assert(Convert.ToDouble(myGridData[i,3])>=5 && Convert.ToDouble(myGridData[i,5])<=10,"Nota trebuie sa fie intre 5 si 10");
                         appDatabase.UpdateRecords("Id", a.Id, "InfoGrade", myGridData[i, 5]);
                     }
                     if (a.MathGrade != Convert.ToDouble(myGridData[i, 6]))
-                    {
+                    {   Debug.Assert(Convert.ToDouble(myGridData[i,3])>=5 && Convert.ToDouble(myGridData[i,6])<=10,"Nota trebuie sa fie intre 5 si 10");
                         appDatabase.UpdateRecords("Id", a.Id, "MathGrade", myGridData[i, 6]);
                     }
-                    //if(a.MathGrade!=myGridData)
+                    
                 }
 
 

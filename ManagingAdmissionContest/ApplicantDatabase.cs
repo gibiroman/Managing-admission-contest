@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace ManagingAdmissionContest
 {
@@ -102,6 +103,8 @@ namespace ManagingAdmissionContest
         /// <param name="applicant">The applicant to be inserted.</param>
         public void InsertRecord(Applicant applicant)
         {
+            Debug.Assert(applicant != null);
+            Debug.Assert(ApplicantList.IndexOf(applicant)!=-1);
             if (ApplicantList.IndexOf(applicant) == -1)
             {
                 ApplicantList.Add(applicant);
@@ -115,6 +118,8 @@ namespace ManagingAdmissionContest
         /// <param name="applicant">The applicant to be deleted.</param>
         public void DeleteRecord(Applicant applicant)
         {
+            Debug.Assert(applicant != null);
+            Debug.Assert(ApplicantList.IndexOf(applicant)!=-1);
             if (ApplicantList.IndexOf(applicant) != -1)
             {
                 ApplicantList.Remove(applicant);
@@ -133,10 +138,12 @@ namespace ManagingAdmissionContest
             Type t = typeof(Applicant);
             PropertyInfo p = t.GetProperty(property);
             List<Applicant> applicantToRemove = new List<Applicant>();
+            Debug.Assert(p != null);
             if (p != null)
             {
                 foreach (Applicant a in ApplicantList)
                 {
+                    Debug.Assert(PropHasValue(a, property, value));
                     if (PropHasValue(a, property, value))
                     {
                         applicantToRemove.Add(a);
@@ -225,10 +232,12 @@ namespace ManagingAdmissionContest
             Type t = typeof (Applicant);
             PropertyInfo p1 = t.GetProperty(forProperty);
             PropertyInfo p2 = t.GetProperty(forProperty);
+            Debug.Assert((p1 != null) && (p2 != null));
             if ((p1 != null) && (p2 != null))
             {
                 foreach (Applicant a in ApplicantList)
                 {
+                    Debug.Assert(PropHasValue(a, forProperty, forValue), "Nu exista camp cu aceasta proprietate");
                     if (PropHasValue(a, forProperty, forValue))
                     {
                         SetPropValue(a, setProperty, setValue);
@@ -263,10 +272,12 @@ namespace ManagingAdmissionContest
             Type t = typeof(Applicant);
             PropertyInfo p = t.GetProperty(property);
             List<Applicant> applicantsToReturn = new List<Applicant>();
+            Debug.Assert(p != null);
             if (p != null)
             {
                 foreach (Applicant a in ApplicantList)
                 {
+                    Debug.Assert(PropHasValue(a, property, value), "Nu exista camp cu aceasta proprietate");
                     if (PropHasValue(a, property, value))
                     {
                         applicantsToReturn.Add(a);
