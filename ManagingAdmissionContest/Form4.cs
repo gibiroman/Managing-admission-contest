@@ -55,7 +55,7 @@ namespace ManagingAdmissionContest
               
                 foreach (Applicant a in listA) { 
                     if (!a.Surname.Equals(myGridData[i,1])){
-                        Debug.Assert(Regex.IsMatch(myGridData[i,1], @"^[a-zA-Z]+$"), "Acest camp trebuie sa contina doar litere"));
+                        Debug.Assert(Regex.IsMatch(myGridData[i,1], @"^[a-zA-Z]+$"), "Acest camp trebuie sa contina doar litere");
                         appDatabase.UpdateRecords("Id",a.Id, "Surname",myGridData[i,1]);
                     }
                     if(!a.Name.Equals(myGridData[i,2])){

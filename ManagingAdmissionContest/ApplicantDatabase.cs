@@ -104,7 +104,7 @@ namespace ManagingAdmissionContest
         public void InsertRecord(Applicant applicant)
         {
             Debug.Assert(applicant != null);
-            Debug.Assert(ApplicantList.IndexOf(applicant)!=-1);
+            Debug.Assert(ApplicantList.IndexOf(applicant)==-1);
             if (ApplicantList.IndexOf(applicant) == -1)
             {
                 ApplicantList.Add(applicant);
@@ -297,7 +297,7 @@ namespace ManagingAdmissionContest
         public void SaveToFile()
         {
             string file = "applicantDatabase\\applicantTable.txt";
-
+            Debug.Assert(File.Exists(file));
             File.WriteAllText(file, ToString());
         }
 

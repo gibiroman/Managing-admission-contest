@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Diagnostics;
 
 namespace ManagingAdmissionContest
 {
@@ -15,6 +16,7 @@ namespace ManagingAdmissionContest
         public static void CreateDatabase(string databaseName)
         {
             Directory.CreateDirectory(databaseName);
+            Debug.Assert(Directory.Exists(databaseName));
         }
 
         /// <summary>
@@ -27,6 +29,7 @@ namespace ManagingAdmissionContest
             {
                 FileStream fs = File.Create(tableName);
                 fs.Close();
+                Debug.Assert(File.Exists(tableName));
             }
             catch (Exception ex)
             {
@@ -41,6 +44,7 @@ namespace ManagingAdmissionContest
         public static void DeleteDatabase(string databaseName)
         {
             Directory.Delete(databaseName, true);
+            Debug.Assert(!Directory.Exists(databaseName));
         }
 
         /// <summary>
@@ -63,7 +67,8 @@ namespace ManagingAdmissionContest
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-            }
+            } 
+            Debug.Assert(!File.Exists(tableName));
         }
     }
 }
