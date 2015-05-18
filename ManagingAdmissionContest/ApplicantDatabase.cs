@@ -44,7 +44,7 @@ namespace ManagingAdmissionContest
         /// <returns>Returns the only instance of this class.</returns>
         public static ApplicantDatabase InitializeDatabase(string fileName)
         {
-
+            Debug.Assert(fileName != null);
             FolderName = "applicantDatabase";
             return InitializeDatabase(FolderName, fileName);
         }
@@ -58,6 +58,8 @@ namespace ManagingAdmissionContest
         /// <returns>Returns the only instance of this class.</returns>
         public static ApplicantDatabase InitializeDatabase(string folderName, string fileName)
         {
+            Debug.Assert(folderName != null);
+            Debug.Assert(fileName != null);
             if (_instance == null)
             {
                 _instance = new ApplicantDatabase();
@@ -92,6 +94,7 @@ namespace ManagingAdmissionContest
         /// </summary>
         public void DeleteDatabase()
         {
+            Debug.Assert(FolderName != null);
             Database.DeleteDatabase(FolderName);
            
             _instance = null;
@@ -135,6 +138,8 @@ namespace ManagingAdmissionContest
         /// <param name="value">The value to search.</param>
         public void DeleteRecords(string property, string value)
         {
+            Debug.Assert(property != null);
+            Debug.Assert(value != null);
             Type t = typeof(Applicant);
             PropertyInfo p = t.GetProperty(property);
             List<Applicant> applicantToRemove = new List<Applicant>();
@@ -229,6 +234,10 @@ namespace ManagingAdmissionContest
         /// <param name="setValue">The new value for the property.</param>
         public void UpdateRecords(string forProperty, string forValue, string setProperty, string setValue)
         {
+            Debug.Assert(forProperty != null);
+            Debug.Assert(forValue != null);
+            Debug.Assert(setProperty != null);
+            Debug.Assert(setValue != null);
             Type t = typeof (Applicant);
             PropertyInfo p1 = t.GetProperty(forProperty);
             PropertyInfo p2 = t.GetProperty(forProperty);
@@ -269,6 +278,8 @@ namespace ManagingAdmissionContest
         /// <returns>Returns a list of Applicant objects.</returns>
         public List<Applicant> SelectRecords(string property, string value)
         {
+            Debug.Assert(property != null);
+            Debug.Assert(value != null);
             Type t = typeof(Applicant);
             PropertyInfo p = t.GetProperty(property);
             List<Applicant> applicantsToReturn = new List<Applicant>();
@@ -308,6 +319,7 @@ namespace ManagingAdmissionContest
         /// <returns>Returns an Applicant Database</returns>
         public static ApplicantDatabase LoadFromFile(string fileName)
         {
+            Debug.Assert(fileName != null);
             string line;
             Applicant applicant;
             ApplicantDatabase applicantDatabase = new ApplicantDatabase();
