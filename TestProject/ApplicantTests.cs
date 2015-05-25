@@ -8,7 +8,7 @@ namespace TestProject
     public class ApplicantTests
     {
         [TestMethod]
-        public void Applicant_ConstructorTest1()
+        public void OnApplicantConstructorWithNoParameters_ShouldInitializeApplicantWithDefaultValues()
         {
             //Arrange
 
@@ -28,7 +28,7 @@ namespace TestProject
             Assert.Equals(person.AdmissionGrade, 0.0);
         }
         [TestMethod]
-        public void Applicant_ConstructorTest2()
+        public void OnApplicantConstructorWithMultipleParameters_ShouldInitializeTheApplicantWithValues()
         {
             //Arrange
 
@@ -48,7 +48,7 @@ namespace TestProject
             Assert.Equals(person.AdmissionGrade, 0);
         }
         [TestMethod]
-        public void Applicant_ConstructorTest3()
+        public void OnApplicantConstructorWithSingleParameter_ShouldInitializeTheApplicantWithValues()
         {
             //Arrange
 
@@ -92,7 +92,7 @@ namespace TestProject
             Assert.Equals(Assert.Equals(a, b), a.Equals(b));
         }
         [TestMethod]
-        public void GetHashCodeTest()
+        public void OnGetHashCode_ForTwoDifferentApplicantsWithSameGrades_ShouldReturnDifferentHashCodes()
         {
             //Arrange
 

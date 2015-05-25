@@ -9,12 +9,12 @@ namespace TestProject
     public class ResultsTest
     {
         [TestMethod]
-        public void Test_WriteResultsToPdfFile()
+        public void WriteResultsToPdfFile_ShouldReturnTrue()
         {
             //Arrange
             List<Applicant> listA = new List<Applicant>();
             Applicant a = new Applicant("123456", "Ion", "Pop", 9.0, 9.50, 9.0, 9.0, 0.0);
-            bool actual = false;
+            bool actual;
             bool expected = true;
 
             //Act
@@ -25,7 +25,7 @@ namespace TestProject
         }
 
         [TestMethod]
-        public void Test_WriteResultsToHTML()
+        public void WriteResultsToHTML_ShoulReturnTrue()
         {
             //Arrange
             List<Applicant> listApp = new List<Applicant>();

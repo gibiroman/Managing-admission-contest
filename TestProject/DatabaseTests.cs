@@ -9,7 +9,7 @@ namespace TestProject
     public class DatabaseTests
     {
         [TestMethod]
-        public void CreateDatabaseTest()
+        public void OnCreateDatabase_ShouldCreateTheContainingFolder()
         {
             //Arrange
 
@@ -20,7 +20,7 @@ namespace TestProject
             Assert.IsTrue(Directory.Exists("myfolder"));
         }
         [TestMethod]
-        public void DeleteDatabaseTest()
+        public void OnDeleteDatabase_ShouldDeleteTheContainingFolder()
         {
             //Arrange
 
@@ -32,7 +32,7 @@ namespace TestProject
             Assert.IsFalse(Directory.Exists("myfolder"));
         }
         [TestMethod]
-        public void CreateTableTest()
+        public void OnCreateTable_ShouldCreateTheContainingFile()
         {
             //Arrange
 
@@ -43,7 +43,7 @@ namespace TestProject
             Assert.IsTrue(File.Exists("myfile.txt"));
         }
         [TestMethod]
-        public void DeleteTableTest()
+        public void OnDeleteTable_ShouldDeleteTheContainingFile()
         {
             //Arrange
 
