@@ -54,9 +54,7 @@
     <Compile Include="ApplicantTests.cs" />
     <Compile Include="DatabaseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AdmissionTest.cs" />
     <Compile Include="ResultsTest.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="InputTests.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>

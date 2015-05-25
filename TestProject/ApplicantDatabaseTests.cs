@@ -62,8 +62,13 @@ namespace TestProject
         [TestMethod]
         public void InitializeDatabaseTest_File1()
         {
+            //Arrange
             string file = "myfile.txt";
+
+            //Act
             ApplicantDatabase ad = ApplicantDatabase.InitializeDatabase(file);
+
+            //Assert
             Assert.IsTrue(File.Exists("applicantDatabase\\" + file));
             Assert.IsNotNull(ad);
             Assert.IsInstanceOfType(ad, typeof(ApplicantDatabase));
@@ -74,8 +79,13 @@ namespace TestProject
         [TestMethod]
         public void InitializeDatabaseTest_File2()
         {
+            //Arrange
             string file = "myfolder\\myfile.txt";
+
+            //Act
             ApplicantDatabase ad = ApplicantDatabase.InitializeDatabase(file);
+
+            //Assert
             Assert.IsTrue(File.Exists("applicantDatabase\\" + file));
             Assert.IsNotNull(ad);
             Assert.IsInstanceOfType(ad, typeof(ApplicantDatabase));
@@ -86,8 +96,13 @@ namespace TestProject
         [TestMethod]
         public void InitializeDatabaseTest_File3()
         {
+            //Arrange
             string file = "D:\\myfile.txt";
+
+            //Act
             ApplicantDatabase ad = ApplicantDatabase.InitializeDatabase(file);
+
+            //Assert
             Assert.IsTrue(File.Exists("applicantDatabase\\" + file));
             Assert.IsNotNull(ad);
             Assert.IsInstanceOfType(ad, typeof(ApplicantDatabase));
@@ -98,8 +113,13 @@ namespace TestProject
         [TestMethod]
         public void InitializeDatabaseTest_File4()
         {
+            //Arrange
             string file = "myfile";
+
+            //Act
             ApplicantDatabase ad = ApplicantDatabase.InitializeDatabase(file);
+
+            //Assert
             Assert.IsTrue(File.Exists("applicantDatabase\\" + file));
             Assert.IsNotNull(ad);
             Assert.IsInstanceOfType(ad, typeof(ApplicantDatabase));
@@ -110,8 +130,13 @@ namespace TestProject
         [TestMethod]
         public void InitializeDatabaseTest_File5()
         {
+            //Arrange
             string file = "";
+
+            //Act
             ApplicantDatabase ad = ApplicantDatabase.InitializeDatabase(file);
+
+            //Assert
             Assert.IsTrue(File.Exists("applicantDatabase\\"+file));
             Assert.IsNotNull(ad);
             Assert.IsInstanceOfType(ad, typeof(ApplicantDatabase));
@@ -122,10 +147,15 @@ namespace TestProject
         [TestMethod]
         public void InitializeDatabaseTest_Folder1()
         {
+            //Arrange
             string folderName = "myfolder\\myfolder";
             string file = "myfile.txt";
-            ApplicantDatabase ad = ApplicantDatabase.InitializeDatabase(folderName,file);
             string path = folderName + "\\" + file;
+
+            //Act
+            ApplicantDatabase ad = ApplicantDatabase.InitializeDatabase(folderName,file);
+            
+            //Assert
             Assert.IsTrue(File.Exists(path));
             Assert.IsNotNull(ad);
             Assert.IsInstanceOfType(ad, typeof(ApplicantDatabase));
@@ -136,10 +166,15 @@ namespace TestProject
         [TestMethod]
         public void InitializeDatabaseTest_Folder2()
         {
+            //Arrange
             string folderName = "D:\\";
             string file = "myfile.txt";
-            ApplicantDatabase ad = ApplicantDatabase.InitializeDatabase(folderName, file);
             string path = folderName + "\\" + file;
+
+            //Act
+            ApplicantDatabase ad = ApplicantDatabase.InitializeDatabase(folderName, file);
+            
+            //Assert
             Assert.IsTrue(File.Exists(path));
             Assert.IsNotNull(ad);
             Assert.IsInstanceOfType(ad, typeof(ApplicantDatabase));
@@ -150,10 +185,15 @@ namespace TestProject
         [TestMethod]
         public void InitializeDatabaseTest_Folder3()
         {
+            //Arrange
             string folderName = "myfile.txt";
             string file = "myfile.txt";
-            ApplicantDatabase ad = ApplicantDatabase.InitializeDatabase(folderName, file);
             string path = folderName + "\\" + file;
+
+            //Act
+            ApplicantDatabase ad = ApplicantDatabase.InitializeDatabase(folderName, file);
+
+            //Assert
             Assert.IsTrue(File.Exists(path));
             Assert.IsNotNull(ad);
             Assert.IsInstanceOfType(ad, typeof(ApplicantDatabase));
@@ -164,10 +204,15 @@ namespace TestProject
         [TestMethod]
         public void InitializeDatabaseTest_Folder4()
         {
+            //Arrange
             string folderName = "";
             string file = "myfile.txt";
-            ApplicantDatabase ad = ApplicantDatabase.InitializeDatabase(folderName, file);
             string path = folderName + "\\" + file;
+
+            //Act
+            ApplicantDatabase ad = ApplicantDatabase.InitializeDatabase(folderName, file);
+
+            //Assert
             Assert.IsTrue(File.Exists(path));
             Assert.IsNotNull(ad);
             Assert.IsInstanceOfType(ad, typeof(ApplicantDatabase));

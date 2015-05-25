@@ -10,7 +10,12 @@ namespace TestProject
         [TestMethod]
         public void Applicant_ConstructorTest1()
         {
+            //Arrange
+
+            //Act
             Applicant person = new Applicant();
+
+            //Assert
             Assert.IsNotNull(person);
             Assert.IsInstanceOfType(person, typeof(Applicant));
             Assert.IsNull(person.Id);
@@ -25,7 +30,12 @@ namespace TestProject
         [TestMethod]
         public void Applicant_ConstructorTest2()
         {
+            //Arrange
+
+            //Act
             Applicant person = new Applicant("2890613284397", "Ionescu", "Alexandra", 7, 6, 8, 9, 0);
+
+            //Assert
             Assert.IsNotNull(person);
             Assert.IsInstanceOfType(person, typeof(Applicant));
             Assert.Equals(person.Id, "2890613284397");
@@ -40,7 +50,12 @@ namespace TestProject
         [TestMethod]
         public void Applicant_ConstructorTest3()
         {
+            //Arrange
+
+            //Act
             Applicant person = new Applicant("2890613284397,Ionescu,Alexandra,7,6,8,9,0");
+
+            //Assert
             Assert.IsNotNull(person);
             Assert.IsInstanceOfType(person, typeof(Applicant));
             Assert.Equals(person.Id, "2890613284397");
@@ -55,22 +70,37 @@ namespace TestProject
         [TestMethod]
         public void ApplicantEqualsTest_True()
         {
+            //Arrange
+
+            //Act
             Applicant a = new Applicant("2890613284397,Ionescu,Alexandra,7,6,8,9,0");
             Applicant b = new Applicant("2890613284397,Ionescu,Alexandra,7,6,8,9,0");
+
+            //Assert
             Assert.Equals(Assert.Equals(a,b),a.Equals(b));
         }
         [TestMethod]
         public void ApplicantEqualsTest_False()
         {
+            //Arrange
+
+            //Act
             Applicant a = new Applicant("2890613284397,Ionescu,Alexandra,7,6,8,9,0");
             Applicant b = new Applicant("2990613284365,Popescu,Alexandra,7,6,8,9,0");
+
+            //Assert
             Assert.Equals(Assert.Equals(a, b), a.Equals(b));
         }
         [TestMethod]
         public void GetHashCodeTest()
         {
+            //Arrange
+
+            //Act
             Applicant a = new Applicant("2890613284397,Ionescu,Alexandra,7,6,8,9,0");
             Applicant b = new Applicant("2990613284365,Popescu,Alexandra,7,6,8,9,0");
+
+            //Assert
             Assert.Equals(a.Id, a.GetHashCode());
             Assert.AreNotEqual(a.GetHashCode(),b.GetHashCode());
         }
